@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-light bg-dark">
+      <h2 class="text-white">Career Plug</h2>
+      <%= link_to '+ New Post', new_post_path, class: "btn btn-primary" %>
+    </nav>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

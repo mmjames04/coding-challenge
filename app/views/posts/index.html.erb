@@ -1,16 +1,15 @@
 <!-- View for showing all `Post` -->
-
-<div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
-      <h1>Career Plug</h1>
-      <%= link_to '+ New Post', new_post_path %>
+<div class="row">
+  <p class="col-md-12 text-right">Search</p>
+</div>
+<% @posts.reverse_each do |post| %>
+  <div class="card">
+    <div class="card-header">
+      <%= post.title %>
+    </div>
+    <div class="card-body">
+      <p><%= truncate(post.body, length: 200) %></p>
+      <p class="text-right"><%= link_to 'comments (x)', post_path(post) %></p>
     </div>
   </div>
-</div>
-
-<% @posts.each do |post| %>
-  <p><%= post.title %></p>
-  <p><%= post.body %></p>
-  <%= link_to 'comments (x)', post_path(post) %>
 <% end %>
