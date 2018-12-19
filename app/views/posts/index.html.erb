@@ -1,6 +1,9 @@
 <!-- View for showing all `Post` -->
 <div class="row">
-  <p class="col-md-12 text-right">Search</p>
+  <% form_tag posts_path, method: :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
 </div>
 <% @posts.reverse_each do |post| %>
   <div class="card">
